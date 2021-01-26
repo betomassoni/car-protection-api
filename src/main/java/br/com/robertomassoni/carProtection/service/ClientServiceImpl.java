@@ -6,6 +6,8 @@ import br.com.robertomassoni.carProtection.model.Client;
 import br.com.robertomassoni.carProtection.repository.ClientRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
@@ -44,7 +46,18 @@ public class ClientServiceImpl implements ClientService {
         if (clientOptional.isPresent()) {
             return ClientMapper.toClientDto(clientOptional.get());            
         }
-        return null;
+        throw new RuntimeException("Erro");        
+    }
+
+    @Override
+    public ClientDto deleteClient(String id) {
+        Optional<Client> clientOptional = clientRepository.findById(id);
+        if (clientOptional.isPresent()) {
+            clientRepository.delete(clientOptional.get());
+            return ClientMapper.toClientDto(clientOptional.get());
+        } else {
+            throw new RuntimeException("Erro");            
+        }
     }
 
 }

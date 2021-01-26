@@ -8,4 +8,5 @@ public interface ClientService {
     List<ClientDto> getClients();
     ClientDto saveClient(ClientDto client);
     ClientDto getClient(String id);
+    ClientDto deleteClient(String id);
 }
