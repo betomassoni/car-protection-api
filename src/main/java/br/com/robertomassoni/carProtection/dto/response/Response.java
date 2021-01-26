@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response<T> {
-    
+     
     private StatusType status;
     private T content;
     private Object errors;
