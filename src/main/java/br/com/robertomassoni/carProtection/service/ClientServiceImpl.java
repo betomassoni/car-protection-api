@@ -46,7 +46,6 @@ public class ClientServiceImpl implements ClientService {
         } catch (Exception ex) {
             throw CarProtectionException.throwException(CLIENT, ENTITY_EXCEPTION);
         }
-
     }
 
     @Override

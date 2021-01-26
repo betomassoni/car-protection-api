@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ClientRequest {
-
+    private String name;
     private String cpf;
     private String city;
     private String state;

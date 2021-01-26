@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import br.com.robertomassoni.carProtection.controller.request.ClientRequest;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/api/client")
@@ -39,5 +40,10 @@ public class ClientController {
     @PutMapping("/{id}")
     public Response update(@PathVariable("id") String id, @RequestBody ClientRequest clientRequest) {
         return Response.ok().setContent(clientService.updateClient(id, ClientMapper.toClientDto(clientRequest)));
+    }
+    
+    @PostMapping()
+    public Response save(@RequestBody ClientRequest clientRequest) {
+        return Response.ok().setContent(clientService.saveClient(ClientMapper.toClientDto(clientRequest)));
     }
 }

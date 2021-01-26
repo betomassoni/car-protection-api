@@ -35,6 +35,7 @@ public class ClientMapper {
         ClientDto clientDto = null;
         if (request != null) {
             clientDto = new ClientDto()
+                    .setName(request.getName())
                     .setCpf(request.getCpf())
                     .setCity(request.getCity())
                     .setState(request.getState()); 
