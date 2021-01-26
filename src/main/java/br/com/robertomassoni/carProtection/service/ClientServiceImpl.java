@@ -1,22 +1,20 @@
 package br.com.robertomassoni.carProtection.service;
 
+import br.com.robertomassoni.carProtection.dto.mapper.ClientMapper;
+import br.com.robertomassoni.carProtection.dto.model.ClientDto;
 import br.com.robertomassoni.carProtection.model.Client;
 import br.com.robertomassoni.carProtection.repository.ClientRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Component;
 
 @Component
 public class ClientServiceImpl implements ClientService {
-    
+
     @Autowired
     private ClientRepository clientRepository;
-    
-    @Override
-    public List<Client> getClients() {
-        return clientRepository.findAll();
-    }
 
     @Override
     public void deleteAllClients() {
@@ -24,8 +22,29 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client saveClient(Client client) {
-        return clientRepository.save(client);
+    public List<ClientDto> getClients() {
+        return ClientMapper.toClientDto(clientRepository.findAll());
+    }
+
+    @Override
+    public ClientDto saveClient(ClientDto clientDto) {
+        Client client = Client
+                .builder()
+                .name(clientDto.getName())
+                .cpf(clientDto.getCpf())
+                .city(clientDto.getCity())
+                .state(clientDto.getState())
+                .build();
+        return ClientMapper.toClientDto(clientRepository.save(client));
+    }
+
+    @Override
+    public ClientDto getClient(String id) {
+        Optional<Client> clientOptional = clientRepository.findById(id);
+        if (clientOptional.isPresent()) {
+            return ClientMapper.toClientDto(clientOptional.get());            
+        }
+        return null;
     }
 
 }

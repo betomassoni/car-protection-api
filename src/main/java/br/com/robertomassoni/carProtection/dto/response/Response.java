@@ -4,7 +4,13 @@ import br.com.robertomassoni.carProtection.enumerator.StatusType;
 import br.com.robertomassoni.carProtection.util.DateUtil;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
+@Data
+@Accessors(chain = true)
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response<T> {
@@ -13,42 +19,6 @@ public class Response<T> {
     private T content;
     private Object errors;
     private Object pageable;
-    
-    public StatusType getStatus() {
-        return status;
-    }
-    
-    public void setStatus(StatusType status) {
-        this.status = status;
-    }
-  
-    public T getContent() {
-        return content;
-    }
-        
-    public Response<T> setContent(T content) {
-        this.content = content;
-        return this;
-    }
-
-    public Object getErrors() {
-        return errors;
-    }
-
-    public Response<T> setErrors(Object errors) {
-        this.errors = errors;
-        return this;
-    }
-
-    public Object getPageable() {
-        return pageable;
-    }
-
-    public Response<T> setPageable(Object pageable) {
-        this.pageable = pageable;
-        return this;
-    }
-
     
     public static <T> Response<T> badRequest() {
         Response<T> response = new Response<>();
@@ -110,6 +80,5 @@ public class Response<T> {
                 .setTimestamp(DateUtil.today());
         setErrors(error);
     }
-    
     
 }

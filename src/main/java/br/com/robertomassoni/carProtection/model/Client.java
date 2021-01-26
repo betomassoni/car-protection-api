@@ -12,5 +12,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Client {    
+    private String id;
     private String name;
+    private String cpf;
+    private String city;
+    private String state;
 }

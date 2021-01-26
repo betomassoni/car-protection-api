@@ -1,11 +1,11 @@
 package br.com.robertomassoni.carProtection.service;
 
-import br.com.robertomassoni.carProtection.model.Client;
+import br.com.robertomassoni.carProtection.dto.model.ClientDto;
 import java.util.List;
 
-
 public interface ClientService {
-    List<Client> getClients();
     void deleteAllClients();
-    Client saveClient(Client client);
+    List<ClientDto> getClients();
+    ClientDto saveClient(ClientDto client);
+    ClientDto getClient(String id);
 }
