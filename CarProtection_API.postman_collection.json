@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "6f63d539-277c-4d55-be36-bc79d7a03fc8",
+		"name": "CarProtection_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request Methods",
+			"item": [
+				{
+					"name": "GET All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localBasedUrl}}/client",
+							"host": [
+								"{{localBasedUrl}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localBasedUrl}}/client/600f66924fcd073327661ac9",
+							"host": [
+								"{{localBasedUrl}}"
+							],
+							"path": [
+								"client",
+								"600f66924fcd073327661ac9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localBasedUrl}}/client/600f603db2aca2294b2d2a7f",
+							"host": [
+								"{{localBasedUrl}}"
+							],
+							"path": [
+								"client",
+								"600f603db2aca2294b2d2a7f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localBasedUrl",
+			"value": "http://localhost:8080/api"
+		}
+	]
+}
