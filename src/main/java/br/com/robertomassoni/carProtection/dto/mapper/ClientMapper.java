@@ -31,7 +31,7 @@ public class ClientMapper {
         return quoteDtoList;
     }
     
-    public static ClientDto toClientDto(ClientRequest request) {
+    public static ClientDto toClientDto(ClientRequest request) {        
         ClientDto clientDto = null;
         if (request != null) {
             clientDto = new ClientDto()
@@ -41,6 +41,19 @@ public class ClientMapper {
                     .setState(request.getState()); 
         }
         return clientDto;
+    }
+    
+    public static Client toClient(ClientDto clientDto) {
+        Client client = null;
+        if (clientDto != null) {                        
+            client = new Client()
+                    .setId(clientDto.getId())
+                    .setName(clientDto.getName())
+                    .setCpf(clientDto.getCpf())
+                    .setCity(clientDto.getCity())
+                    .setState(clientDto.getState());            
+        }
+        return client;
     }
     
     

@@ -2,6 +2,7 @@ package br.com.robertomassoni.carProtection.dto.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,11 +14,13 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ClientDto {
-   
+public class InsurancePolicyDto {
+
     private String id;
-    private String name;
-    private String cpf;
-    private String city;
-    private String state; 
+    private String number;
+    private Date begin;
+    private Date end;
+    private String plate; 
+    private Double amount; 
+    private String clientId;
 }

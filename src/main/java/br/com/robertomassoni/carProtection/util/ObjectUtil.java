@@ -6,11 +6,11 @@ import java.util.List;
 
 public class ObjectUtil {
 
-    private static final List<String> PRIMITIVE_JSON_TYPES = Arrays.asList("Long", "Long[]", "Integer", "Integer[]", "String", "String[]", "Boolean", "boolean[]", "ArrayList", "LinkedHashMap");
+    private static final List<String> PRIMITIVE_JSON_TYPES = Arrays.asList("Long", "Long[]", "Integer", "Integer[]", "String", "String[]", "Boolean", "boolean[]", "ArrayList", "LinkedHashMap", "Date", "Double");
     
     /**
      * Merge two objects 
-     * 
+     *  
      * More: https://github.com/joantolos/kata-merge-object
      * 
      * @param <T>

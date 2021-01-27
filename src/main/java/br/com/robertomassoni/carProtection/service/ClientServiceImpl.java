@@ -21,12 +21,20 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void deleteAllClients() {
-        clientRepository.deleteAll();
+        try {
+            clientRepository.deleteAll();
+        } catch (Exception ex) {
+            throw CarProtectionException.throwException(CLIENT, ENTITY_EXCEPTION);
+        }
     }
 
     @Override
     public List<ClientDto> getClients() {
-        return ClientMapper.toClientDto(clientRepository.findAll());
+        try {
+            return ClientMapper.toClientDto(clientRepository.findAll());
+        } catch (Exception ex) {
+            throw CarProtectionException.throwException(CLIENT, ENTITY_EXCEPTION);
+        }
     }
 
     @Override
@@ -42,7 +50,7 @@ public class ClientServiceImpl implements ClientService {
                     .setState(clientDto.getState());
             return ClientMapper.toClientDto(clientRepository.save(client));
         } catch (CarProtectionException.EntityIsEmptyException ex) {
-            throw CarProtectionException.throwException(CLIENT, ENTITY_IS_EMPTY);        
+            throw CarProtectionException.throwException(CLIENT, ENTITY_IS_EMPTY);
         } catch (Exception ex) {
             throw CarProtectionException.throwException(CLIENT, ENTITY_EXCEPTION);
         }
@@ -67,7 +75,7 @@ public class ClientServiceImpl implements ClientService {
     public ClientDto deleteClient(String id) {
         try {
             Optional<Client> clientOptional = clientRepository.findById(id);
-            if (clientOptional.isPresent() == false) {                             
+            if (clientOptional.isPresent() == false) {
                 throw new CarProtectionException.EntityNotFoundException();
             }
             clientRepository.delete(clientOptional.get());
@@ -83,7 +91,7 @@ public class ClientServiceImpl implements ClientService {
     public ClientDto updateClient(String id, ClientDto clientDto) {
         try {
             Optional<Client> existingClient = clientRepository.findById(id);
-            if (existingClient.isPresent()) {
+            if (existingClient.isPresent() == false) {
                 throw new CarProtectionException.EntityNotFoundException();
             }
             Client changedClient = new Client()
