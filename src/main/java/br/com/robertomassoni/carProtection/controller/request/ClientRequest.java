@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.br.CPF;
 
 @Getter
 @Setter
@@ -17,6 +18,7 @@ public class ClientRequest {
     @NotBlank(message = "Name is required.")
     private String name;
     
+    @CPF(message = "Enter a valid CPF.")
     @NotBlank(message = "CPF is required.")
     private String cpf;
     
