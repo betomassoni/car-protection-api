@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import br.com.robertomassoni.carProtection.controller.request.InsurancePolicyRequest;
+import javax.validation.Valid;
         
 @RestController
 @RequestMapping("/api/insurance-policy")
@@ -43,7 +44,7 @@ public class InsurancePolicyController {
     }
     
     @PostMapping()
-    public Response save(@RequestBody InsurancePolicyRequest insurancePolicyRequest) {
+    public Response save(@RequestBody @Valid InsurancePolicyRequest insurancePolicyRequest) {
         return Response.ok().setContent(insurancePolicyService.saveInsurancePolicy(InsurancePolicyMapper.toInsurancePolicyDto(insurancePolicyRequest)));
     }
 }
