@@ -26,10 +26,10 @@ public class CarProtectionException {
     private static RuntimeException throwException(ExceptionType exceptionType, String messageTemplate, String... args) {
         if (ExceptionType.ENTITY_NOT_FOUND.equals(exceptionType)) {
             return new EntityNotFoundException(format(messageTemplate, args));
-        } else if (ExceptionType.ENTITY_IS_EMPTY.equals(exceptionType)) {
-            return new EntityException(format(messageTemplate, args));
-        } else if (ExceptionType.ENTITY_EXCEPTION.equals(exceptionType)) {
-            return new EntityException(format(messageTemplate, args));
+        } else if (ExceptionType.ENTITY_IS_EMPTY.equals(exceptionType)
+                || ExceptionType.ENTITY_ALREADY_EXISTS.equals(exceptionType)
+                || ExceptionType.ENTITY_EXCEPTION.equals(exceptionType)) {
+            return new EntityException(format(messageTemplate, args));        
         }
         return new RuntimeException(format(messageTemplate, args));
     }
@@ -69,6 +69,15 @@ public class CarProtectionException {
             super();
         }
         public EntityException(String message) {
+            super(message);
+        }
+    }
+    
+    public static class EntityAlreadyExistsException extends RuntimeException {
+        public EntityAlreadyExistsException() {
+            super();
+        }
+        public EntityAlreadyExistsException(String message) {
             super(message);
         }
     }

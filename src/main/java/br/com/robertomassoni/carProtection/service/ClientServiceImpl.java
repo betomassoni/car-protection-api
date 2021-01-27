@@ -43,12 +43,17 @@ public class ClientServiceImpl implements ClientService {
             if (clientDto == null) {
                 throw new CarProtectionException.EntityIsEmptyException();
             }
+            if (cpfExists(clientDto.getCpf())) {
+                throw new CarProtectionException.EntityAlreadyExistsException();
+            }
             Client client = new Client()
                     .setName(clientDto.getName())
                     .setCpf(clientDto.getCpf())
                     .setCity(clientDto.getCity())
                     .setState(clientDto.getState());
             return ClientMapper.toClientDto(clientRepository.save(client));
+        } catch (CarProtectionException.EntityAlreadyExistsException ex) {
+            throw CarProtectionException.throwException(CLIENT, ENTITY_ALREADY_EXISTS, clientDto.getCpf());
         } catch (CarProtectionException.EntityIsEmptyException ex) {
             throw CarProtectionException.throwException(CLIENT, ENTITY_IS_EMPTY);
         } catch (Exception ex) {
@@ -108,6 +113,11 @@ public class ClientServiceImpl implements ClientService {
         } catch (Exception ex) {
             throw CarProtectionException.throwException(CLIENT, ENTITY_EXCEPTION);
         }
+    }
+    
+    private boolean cpfExists(String cpf) {
+        Optional<Client> clientOptional = Optional.ofNullable(clientRepository.findByCpf(cpf));        
+        return clientOptional.isPresent();            
     }
 
 }

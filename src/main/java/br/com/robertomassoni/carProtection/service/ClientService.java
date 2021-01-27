@@ -9,5 +9,5 @@ public interface ClientService {
     ClientDto saveClient(ClientDto client);
     ClientDto getClient(String id);
     ClientDto deleteClient(String id);
-    ClientDto updateClient(String id, ClientDto clientDto);
+    ClientDto updateClient(String id, ClientDto clientDto);    
 }

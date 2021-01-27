@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientRepository extends MongoRepository<Client, String> {
-
+    
+    public Client findByCpf(String cpf);
 }

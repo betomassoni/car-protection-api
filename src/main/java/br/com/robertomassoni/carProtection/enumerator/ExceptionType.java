@@ -5,7 +5,8 @@ public enum ExceptionType {
     ENTITY_NOT_FOUND("not.found"),
     DUPLICATE_ENTITY("duplicate"),
     ENTITY_EXCEPTION("exception"),
-    ENTITY_IS_EMPTY("is.empty");
+    ENTITY_IS_EMPTY("is.empty"),
+    ENTITY_ALREADY_EXISTS("already.exists");
 
     String value;
 
