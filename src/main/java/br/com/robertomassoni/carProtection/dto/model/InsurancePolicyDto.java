@@ -18,9 +18,12 @@ public class InsurancePolicyDto {
 
     private String id;
     private String number;
-    private Date begin;
-    private Date end;
+    private String begin;
+    private String end;
     private String plate; 
     private Double amount; 
     private String clientId;
+    private boolean expired;
+    private int remaningDays;
+        
 }

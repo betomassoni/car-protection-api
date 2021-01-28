@@ -12,6 +12,7 @@ import static br.com.robertomassoni.carProtection.enumerator.ExceptionType.*;
 import br.com.robertomassoni.carProtection.model.InsurancePolicy;
 import br.com.robertomassoni.carProtection.model.Client;
 import br.com.robertomassoni.carProtection.repository.ClientRepository;
+import br.com.robertomassoni.carProtection.util.DateUtil;
 import br.com.robertomassoni.carProtection.util.ObjectUtil;
 import java.util.Optional;
 
@@ -41,7 +42,7 @@ public class InsurancePolicyServiceImpl implements InsurancePolicyService {
             throw CarProtectionException.throwException(INSURANCE_POLICY, ENTITY_EXCEPTION);
         }
     }
-
+ 
     @Override
     public InsurancePolicyDto saveInsurancePolicy(InsurancePolicyDto insurancePolicyDto) {
         Optional<Client> clientDtoOptional = null;
@@ -59,8 +60,8 @@ public class InsurancePolicyServiceImpl implements InsurancePolicyService {
             InsurancePolicy insurancePolicy = new InsurancePolicy()
                     .setNumber(insurancePolicyDto.getNumber())
                     .setPlate(insurancePolicyDto.getPlate())
-                    .setBegin(insurancePolicyDto.getBegin())
-                    .setEnd(insurancePolicyDto.getEnd())
+                    .setBegin(DateUtil.parseFormattedDate(insurancePolicyDto.getBegin()))
+                    .setEnd(DateUtil.parseFormattedDate(insurancePolicyDto.getEnd()))
                     .setAmount(insurancePolicyDto.getAmount())
                     .setClient(clientDtoOptional.get());
 
@@ -114,8 +115,8 @@ public class InsurancePolicyServiceImpl implements InsurancePolicyService {
             InsurancePolicy changedInsurancePolicy = new InsurancePolicy()
                     .setNumber(insurancePolicyDto.getNumber())
                     .setPlate(insurancePolicyDto.getPlate())
-                    .setBegin(insurancePolicyDto.getBegin())
-                    .setEnd(insurancePolicyDto.getEnd())
+                    .setBegin(DateUtil.parseFormattedDate(insurancePolicyDto.getBegin()))
+                    .setEnd(DateUtil.parseFormattedDate(insurancePolicyDto.getEnd()))
                     .setAmount(insurancePolicyDto.getAmount())
                     .setClient(existingInsurancePolicy.get().getClient());
 

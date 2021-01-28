@@ -64,8 +64,8 @@ public class CarProtectionApiApplication {
         InsurancePolicyDto insurancePolicyDto = new InsurancePolicyDto();
         insurancePolicyDto.setNumber("9776672");
         insurancePolicyDto.setPlate("RH7HUEE");
-        insurancePolicyDto.setBegin(new Date());
-        insurancePolicyDto.setEnd(new Date());
+        insurancePolicyDto.setBegin("2021-01-01");
+        insurancePolicyDto.setEnd("2022-01-01");
         insurancePolicyDto.setAmount(110.90);
         insurancePolicyDto.setClientId(c1.getId());
 
