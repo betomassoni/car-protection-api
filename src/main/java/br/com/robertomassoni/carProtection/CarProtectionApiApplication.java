@@ -11,10 +11,11 @@ import org.springframework.context.annotation.Bean;
 import br.com.robertomassoni.carProtection.dto.model.ClientDto;
 import br.com.robertomassoni.carProtection.service.InsurancePolicyService;
 import br.com.robertomassoni.carProtection.dto.model.InsurancePolicyDto;
-import java.util.Date;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @Slf4j
+@EnableSwagger2
 public class CarProtectionApiApplication {
 
     public static void main(String[] args) {
