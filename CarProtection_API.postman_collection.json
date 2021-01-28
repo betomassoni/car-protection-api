@@ -9,79 +9,226 @@
 			"name": "Request Methods",
 			"item": [
 				{
-					"name": "GET All",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{localBasedUrl}}/client",
-							"host": [
-								"{{localBasedUrl}}"
-							],
-							"path": [
-								"client"
-							]
+					"name": "Client",
+					"item": [
+						{
+							"name": "GET All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localBasedUrl}}/client",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"client"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localBasedUrl}}/client/60118ac4983e1245b523a0fa",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"client",
+										"60118ac4983e1245b523a0fa"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{localBasedUrl}}/client/60109e9d9c2c4f0d01a040232",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"client",
+										"60109e9d9c2c4f0d01a040232"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{    \n    \n    \"city\": \"MARINGÁ\"\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localBasedUrl}}/client/601183bf5df27a5e973ea07a",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"client",
+										"601183bf5df27a5e973ea07a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"d\",\n    \"cpf\": \"39049564852\",\n    \"city\": \"Mirasol\",\n    \"state\": \"SP\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localBasedUrl}}/client",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"client"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "GET One",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{localBasedUrl}}/client/600f66924fcd073327661ac9",
-							"host": [
-								"{{localBasedUrl}}"
-							],
-							"path": [
-								"client",
-								"600f66924fcd073327661ac9"
-							]
+					"name": "InsurancePolicy",
+					"item": [
+						{
+							"name": "GET All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localBasedUrl}}/insurance-policy",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"insurance-policy"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{localBasedUrl}}/insurance-policy/6011870973797e38af7d3027",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"insurance-policy",
+										"6011870973797e38af7d3027"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{localBasedUrl}}/insurance-policy/6011810469290d217907194e",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"insurance-policy",
+										"6011810469290d217907194e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n            \"expired\": false\n}\n            ",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localBasedUrl}}/insurance-policy/60122d412ae03e1f35647db1",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"insurance-policy",
+										"60122d412ae03e1f35647db1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"number\": \"23432\",\n    \"begin\": \"2021-01-10\",\n    \"end\": \"2021-01-30\",\n    \"plate\": \"123456789\",\n    \"amount\": 123,\n    \"clientId\": \"6012afb38307be088efff7ac\" \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{localBasedUrl}}/insurance-policy",
+									"host": [
+										"{{localBasedUrl}}"
+									],
+									"path": [
+										"insurance-policy"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{localBasedUrl}}/client/600f603db2aca2294b2d2a7f",
-							"host": [
-								"{{localBasedUrl}}"
-							],
-							"path": [
-								"client",
-								"600f603db2aca2294b2d2a7f"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
+					]
 				}
 			]
 		}
