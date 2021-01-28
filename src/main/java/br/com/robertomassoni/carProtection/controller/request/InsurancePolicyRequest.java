@@ -9,32 +9,32 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
- 
+
 @Getter
 @Setter
 @Accessors(chain = true)
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class InsurancePolicyRequest {
-    
+
     @NotBlank(message = "Number is required.")
     private String number;
-    
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "pt-BR", timezone = "Brazil/East")
     @NotNull(message = "Begin Date is required.")
     private Date begin;
-    
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", locale = "pt-BR", timezone = "Brazil/East")
     @NotNull(message = "End Date is required.")
     private Date end;
-    
+
     @NotBlank(message = "Plate is required.")
     private String plate;
-    
+
     @NotNull(message = "Amount is required.")
     private Double amount;
-    
+
     @NotBlank(message = "Client id is required.")
     private String clientId;
-        
+
 }
